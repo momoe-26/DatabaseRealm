@@ -35,10 +35,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    //realmDBのテーブルら（Objects）からMemoテーブルを持ってきて、最初のレコードを読み取る
     func read() -> Memo?{
         return realm.objects(Memo.self).first
     }
     
+    //もし、読み取ったレコードの中身がnilでないならDBのMemoテーブルに入力された値を書き込む
+    //nilなら、DBのMemoテーブルに新しいレコード追加する。
     @IBAction func save() {
         let title: String = titleTextField.text!
         let content: String = cotentTextField.text!
